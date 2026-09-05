@@ -1,0 +1,5 @@
+1f18abe17b1ed8b4e47ee9b1ad0e274c93daf5efbb6b29a04ff1712e37051e05  surya-ocr-2-gguf/surya-2.gguf
+98c0563673b1657ff6d021d1e5f04af06cbf61bb40c63ac613e8bb71b42fb2c0  surya-ocr-2-gguf/surya-2-mmproj.gguf
+42cd5698d62dcdd408628fe6d67c3e1981fc90523ca286f358f1dea8e212de3e  model-cache/datalab-models/ocr_error_detection/2025_02_18/model.safetensors
+e01b79f858778cdad8a1384e644ac2b35f9c095fbfd102a34942e23f2f179fe7  model-cache/huggingface/hub/models--datalab-to--surya_layout2/snapshots/0aee81d5fd9275c0582e545bf3a56944b1e75679/rfdetr_layout.pth
+f381c38548015cbbe962611cbd2c80c59e88c3c25543ac20df9db16f84923ad8  model-cache/huggingface/hub/models--datalab-to--surya_layout2/snapshots/0aee81d5fd9275c0582e545bf3a56944b1e75679/order/order_ar.pt

@@ -1,0 +1,2 @@
+marker-pdf==2.0.0
+pypdfium2>=5.10,<6

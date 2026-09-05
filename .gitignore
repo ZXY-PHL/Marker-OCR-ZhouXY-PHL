@@ -1,0 +1,46 @@
+# Python bytecode and local environments
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.venv-*/
+venv/
+
+# Machine-specific settings and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OCR work products, checkpoints, and diagnostic logs
+outputs/
+failed-attempt-logs/
+*.log
+*.stdout.log
+*.stderr.log
+chunk-status.jsonl
+
+# Generated verification and release products
+reports/
+releases/
+*.zip
+*.tar.gz
+*.sha256
+
+# Large native runtimes and model caches; they belong in platform packages,
+# not in the source repository.
+runtime/
+model-cache/
+surya-ocr-2-gguf/
+*.gguf
+*.safetensors
+*.pth
+*.onnx
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

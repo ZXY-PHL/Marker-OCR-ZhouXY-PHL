@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "release_version": "1.0.1",
+  "shared_files": [
+    {
+      "source": "shared/scripts/clean_markdown.py",
+      "destinations": {
+        "windows-full": "scripts/clean_markdown.py",
+        "macos": "scripts/clean_markdown.py"
+      }
+    },
+    {
+      "source": "shared/scripts/validate_markdown.py",
+      "destinations": {
+        "windows-full": "scripts/validate_markdown.py",
+        "macos": "scripts/validate_markdown.py"
+      }
+    }
+  ],
+  "targets": {
+    "windows-full": {
+      "package_dir": "../Marker-OCR-Portable",
+      "source_dir": "platform/windows-full",
+      "archive_name": "Marker-OCR-Portable-{version}.zip",
+      "archive_format": "zip",
+      "files": [
+        "Check-Environment.bat",
+        "Check-Environment.ps1",
+        "Finish-Merge.bat",
+        "Finish-Merge.ps1",
+        "pipeline.ps1",
+        "README-使用说明.md",
+        "run_until_done.ps1",
+        "Start-OCR.bat",
+        "Start-OCR.ps1",
+        "scripts/marker_single_entry.py"
+      ],
+      "required_assets": [
+        "runtime/pwsh/pwsh.exe",
+        "runtime/python/python.exe",
+        "llama.cpp-b9627/bin/llama-server.exe",
+        "surya-ocr-2-gguf/surya-2.gguf",
+        "surya-ocr-2-gguf/surya-2-mmproj.gguf",
+        "model-cache/huggingface/hub/models--datalab-to--surya_layout2/refs/main",
+        "model-cache/datalab-models/ocr_error_detection/2025_02_18/model.safetensors"
+      ]
+    },
+    "macos": {
+      "package_dir": "../Marker-OCR-macOS",
+      "source_dir": "platform/macos",
+      "archive_name": "Marker-OCR-macOS-{version}.tar.gz",
+      "archive_format": "tar.gz",
+      "files": [
+        "check_environment.command",
+        "finish_merge.command",
+        "README-使用说明.md",
+        "requirements-macos.txt",
+        "setup_macos.command",
+        "SHA256SUMS.txt",
+        "start_ocr.command",
+        "THIRD-PARTY-NOTICES.md",
+        "scripts/check_environment.py",
+        "scripts/create_release_archive.py",
+        "scripts/finish_merge.py",
+        "scripts/patch_surya_cache.py",
+        "scripts/path_input.py",
+        "scripts/pipeline_macos.py",
+        "scripts/run_until_done.py",
+        "scripts/start_ocr.py",
+        "scripts/static_self_test.py"
+      ],
+      "required_assets": [
+        "surya-ocr-2-gguf/surya-2.gguf",
+        "surya-ocr-2-gguf/surya-2-mmproj.gguf",
+        "model-cache/huggingface/hub/models--datalab-to--surya_layout2/refs/main",
+        "model-cache/datalab-models/ocr_error_detection/2025_02_18/model.safetensors"
+      ]
+    },
+    "windows-lite": {
+      "package_dir": "../Marker-OCR-Portable-Lite",
+      "source_dir": "platform/windows-lite",
+      "archive_name": "Marker-OCR-Portable-Lite-{version}.zip",
+      "archive_format": "zip",
+      "files": [
+        "invoke-marker-ocr.ps1",
+        "node-contract.json",
+        "README-自动化节点.md",
+        "run-node.cmd"
+      ],
+      "required_assets": []
+    }
+  }
+}

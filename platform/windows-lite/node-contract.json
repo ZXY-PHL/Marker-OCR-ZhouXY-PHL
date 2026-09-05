@@ -1,0 +1,42 @@
+{
+  "name": "marker-ocr-portable-lite",
+  "version": "1.0.1",
+  "platform": "windows-x64",
+  "entrypoints": {
+    "cmd": "run-node.cmd",
+    "powershell": "invoke-marker-ocr.ps1"
+  },
+  "actions": [
+    "Check",
+    "Ocr",
+    "Merge",
+    "Status"
+  ],
+  "result_file": "<OutputRoot>\\node-result.json",
+  "success_exit_code": 0,
+  "default_max_no_progress_rounds": 3,
+  "success_statuses": [
+    "READY",
+    "AWAITING_TRANSLATION",
+    "OCR_COMPLETE",
+    "SUCCESS",
+    "INCOMPLETE"
+  ],
+  "exit_codes": {
+    "0": "Action completed and its result is represented by status",
+    "2": "Invalid arguments or unexpected wrapper error",
+    "3": "Engine is not ready",
+    "10": "Underlying Marker process failed",
+    "20": "OCR stopped without all expected checkpoints",
+    "21": "Merge did not produce the required artifacts",
+    "30": "The output directory is locked by another node invocation"
+  },
+  "external_dependency": {
+    "type": "Marker-OCR-Portable full engine",
+    "resolution_order": [
+      "-EngineRoot",
+      "MARKER_OCR_ENGINE_ROOT",
+      "sibling Marker-OCR-Portable"
+    ]
+  }
+}

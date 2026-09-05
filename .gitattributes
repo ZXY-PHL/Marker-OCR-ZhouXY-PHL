@@ -1,0 +1,6 @@
+# Keep the source checkout portable. In particular, macOS .command launchers
+# must remain LF terminated after a Windows commit.
+* text=auto eol=lf
+*.command text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
