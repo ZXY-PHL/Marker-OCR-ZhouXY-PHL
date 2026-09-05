@@ -257,14 +257,35 @@ def main() -> int:
 
     archive_progress.finish("All target archives written")
 
+    output_manifest = release_dir / "release-artifacts.json"
+    retained_artifacts = []
+    if output_manifest.is_file():
+        try:
+            existing_manifest = json.loads(output_manifest.read_text(encoding="utf-8"))
+            same_release = (
+                existing_manifest.get("release_version") == version
+                and existing_manifest.get("archive_mode") == args.mode
+            )
+            if same_release:
+                selected_targets = set(targets)
+                for artifact in existing_manifest.get("artifacts", []):
+                    filename = artifact.get("filename")
+                    if (
+                        artifact.get("target") not in selected_targets
+                        and isinstance(filename, str)
+                        and (release_dir / filename).is_file()
+                    ):
+                        retained_artifacts.append(artifact)
+        except (OSError, ValueError, TypeError):
+            retained_artifacts = []
+
     release_manifest = {
         "schema_version": "1.0",
         "release_version": version,
         "generated_at": datetime.now(timezone.utc).astimezone().isoformat(),
         "archive_mode": args.mode,
-        "artifacts": artifacts,
+        "artifacts": retained_artifacts + artifacts,
     }
-    output_manifest = release_dir / "release-artifacts.json"
     output_manifest.write_text(json.dumps(release_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(output_manifest)
     return 0
