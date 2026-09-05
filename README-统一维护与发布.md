@@ -38,6 +38,8 @@ Start-Marker-OCR.bat finish
 
 `--show-platform` 只显示当前路由结果，不启动 OCR，适合安装后自检。
 
+Windows 与 Mac 的 Git 同步和本机 macOS 包同步步骤见 [docs/Git同步指南.md](docs/Git同步指南.md)。
+
 ## 3. 最常用维护命令
 
 在 PowerShell 中进入：
